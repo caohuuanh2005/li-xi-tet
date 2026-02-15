@@ -1,0 +1,1340 @@
+/* ==========================================
+   RESET & BASE STYLES
+   ========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Enhanced Tết Color Palette */
+    --red-primary: #DC143C;
+    --red-dark: #B22222;
+    --red-light: #FF6B6B;
+    --red-accent: #FF4757;
+    --gold-primary: #FFD700;
+    --gold-dark: #FFA500;
+    --gold-light: #FFF8DC;
+    --gold-bright: #FFED4E;
+    --white: #FFFFFF;
+    --shadow: rgba(220, 20, 60, 0.4);
+    --shadow-heavy: rgba(0, 0, 0, 0.5);
+    --glow-gold: rgba(255, 215, 0, 0.6);
+    --glow-red: rgba(220, 20, 60, 0.5);
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 20% 80%, rgba(255, 215, 0, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 71, 87, 0.15) 0%, transparent 50%),
+        linear-gradient(135deg,
+            #DC143C 0%,
+            #B22222 20%,
+            #8B0000 40%,
+            #FF4757 60%,
+            #DC143C 80%,
+            #FF6B6B 100%);
+    background-size: 100% 100%, 100% 100%, 400% 400%;
+    animation: gradientShift 20s ease infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    overflow-x: hidden;
+    position: relative;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* ==========================================
+   PARTICLES BACKGROUND
+   ========================================== */
+.particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.particle {
+    position: absolute;
+    background: var(--gold-bright);
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: float 8s infinite ease-in-out;
+    box-shadow:
+        0 0 30px var(--gold-primary),
+        0 0 60px rgba(255, 215, 0, 0.4);
+}
+
+/* Varied particle sizes */
+.particle:nth-child(1) {
+    width: 8px;
+    height: 8px;
+    left: 10%;
+    top: 20%;
+    animation-delay: 0s;
+    animation-duration: 7s;
+}
+
+.particle:nth-child(2) {
+    width: 12px;
+    height: 12px;
+    left: 20%;
+    top: 80%;
+    animation-delay: 1s;
+    animation-duration: 9s;
+}
+
+.particle:nth-child(3) {
+    width: 6px;
+    height: 6px;
+    left: 30%;
+    top: 40%;
+    animation-delay: 2s;
+    animation-duration: 6s;
+}
+
+.particle:nth-child(4) {
+    width: 10px;
+    height: 10px;
+    left: 40%;
+    top: 60%;
+    animation-delay: 0.5s;
+    animation-duration: 8s;
+}
+
+.particle:nth-child(5) {
+    width: 14px;
+    height: 14px;
+    left: 50%;
+    top: 10%;
+    animation-delay: 1.5s;
+    animation-duration: 7s;
+}
+
+.particle:nth-child(6) {
+    width: 8px;
+    height: 8px;
+    left: 60%;
+    top: 70%;
+    animation-delay: 2.5s;
+    animation-duration: 9s;
+}
+
+.particle:nth-child(7) {
+    width: 12px;
+    height: 12px;
+    left: 70%;
+    top: 30%;
+    animation-delay: 3s;
+    animation-duration: 6s;
+}
+
+.particle:nth-child(8) {
+    width: 10px;
+    height: 10px;
+    left: 80%;
+    top: 50%;
+    animation-delay: 0.8s;
+    animation-duration: 8s;
+}
+
+.particle:nth-child(9) {
+    width: 6px;
+    height: 6px;
+    left: 90%;
+    top: 90%;
+    animation-delay: 1.8s;
+    animation-duration: 7s;
+}
+
+.particle:nth-child(10) {
+    width: 14px;
+    height: 14px;
+    left: 15%;
+    top: 55%;
+    animation-delay: 2.8s;
+    animation-duration: 9s;
+}
+
+.particle:nth-child(11) {
+    width: 8px;
+    height: 8px;
+    left: 25%;
+    top: 15%;
+    animation-delay: 1.2s;
+    animation-duration: 7.5s;
+}
+
+.particle:nth-child(12) {
+    width: 10px;
+    height: 10px;
+    left: 35%;
+    top: 75%;
+    animation-delay: 2.2s;
+    animation-duration: 8.5s;
+}
+
+.particle:nth-child(13) {
+    width: 12px;
+    height: 12px;
+    left: 45%;
+    top: 35%;
+    animation-delay: 0.3s;
+    animation-duration: 6.5s;
+}
+
+.particle:nth-child(14) {
+    width: 6px;
+    height: 6px;
+    left: 65%;
+    top: 85%;
+    animation-delay: 1.7s;
+    animation-duration: 7.8s;
+}
+
+.particle:nth-child(15) {
+    width: 14px;
+    height: 14px;
+    left: 85%;
+    top: 25%;
+    animation-delay: 2.3s;
+    animation-duration: 8.2s;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.7;
+    }
+
+    25% {
+        transform: translateY(-40px) rotate(90deg);
+        opacity: 1;
+    }
+
+    50% {
+        transform: translateY(0) rotate(180deg);
+        opacity: 0.5;
+    }
+
+    75% {
+        transform: translateY(-40px) rotate(270deg);
+        opacity: 1;
+    }
+}
+
+/* ==========================================
+   FLOATING LANTERNS
+   ========================================== */
+.lanterns {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.lantern {
+    position: absolute;
+    font-size: 3rem;
+    animation: floatLantern 12s infinite ease-in-out;
+    filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.8));
+    opacity: 0.8;
+}
+
+.lantern:nth-child(1) {
+    left: 5%;
+    top: 10%;
+    animation-delay: 0s;
+    animation-duration: 10s;
+}
+
+.lantern:nth-child(2) {
+    left: 85%;
+    top: 15%;
+    animation-delay: 2s;
+    animation-duration: 12s;
+}
+
+.lantern:nth-child(3) {
+    left: 30%;
+    top: 5%;
+    animation-delay: 4s;
+    animation-duration: 11s;
+}
+
+.lantern:nth-child(4) {
+    left: 60%;
+    top: 8%;
+    animation-delay: 1s;
+    animation-duration: 13s;
+}
+
+.lantern:nth-child(5) {
+    left: 75%;
+    top: 12%;
+    animation-delay: 3s;
+    animation-duration: 10.5s;
+}
+
+@keyframes floatLantern {
+
+    0%,
+    100% {
+        transform: translateY(0) translateX(0) rotate(-5deg);
+        opacity: 0.6;
+    }
+
+    25% {
+        transform: translateY(-30px) translateX(20px) rotate(5deg);
+        opacity: 0.9;
+    }
+
+    50% {
+        transform: translateY(-10px) translateX(-10px) rotate(-3deg);
+        opacity: 0.7;
+    }
+
+    75% {
+        transform: translateY(-25px) translateX(15px) rotate(3deg);
+        opacity: 0.8;
+    }
+}
+
+/* ==========================================
+   FALLING BLOSSOMS
+   ========================================== */
+.blossoms {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.blossom {
+    position: absolute;
+    font-size: 1.5rem;
+    animation: fallBlossom 15s infinite linear;
+    opacity: 0.6;
+    top: -50px;
+}
+
+.blossom:nth-child(1) {
+    left: 10%;
+    animation-delay: 0s;
+    animation-duration: 12s;
+}
+
+.blossom:nth-child(2) {
+    left: 25%;
+    animation-delay: 3s;
+    animation-duration: 14s;
+}
+
+.blossom:nth-child(3) {
+    left: 40%;
+    animation-delay: 6s;
+    animation-duration: 13s;
+}
+
+.blossom:nth-child(4) {
+    left: 55%;
+    animation-delay: 2s;
+    animation-duration: 15s;
+}
+
+.blossom:nth-child(5) {
+    left: 70%;
+    animation-delay: 5s;
+    animation-duration: 12.5s;
+}
+
+.blossom:nth-child(6) {
+    left: 85%;
+    animation-delay: 1s;
+    animation-duration: 14.5s;
+}
+
+.blossom:nth-child(7) {
+    left: 15%;
+    animation-delay: 4s;
+    animation-duration: 13.5s;
+}
+
+.blossom:nth-child(8) {
+    left: 65%;
+    animation-delay: 7s;
+    animation-duration: 12.8s;
+}
+
+@keyframes fallBlossom {
+    0% {
+        transform: translateY(-50px) translateX(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.7;
+    }
+
+    90% {
+        opacity: 0.3;
+    }
+
+    100% {
+        transform: translateY(100vh) translateX(100px) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* ==========================================
+   MAIN CONTAINER
+   ========================================== */
+.container {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    width: 100%;
+}
+
+/* ==========================================
+   HEADER
+   ========================================== */
+.header {
+    text-align: center;
+    margin-bottom: 50px;
+    animation: slideDown 1s ease-out;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 30px;
+    padding: 40px 30px;
+    border: 2px solid rgba(255, 215, 0, 0.3);
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        0 0 60px rgba(255, 215, 0, 0.2),
+        inset 0 0 40px rgba(255, 215, 0, 0.05);
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.title {
+    font-family: 'Pacifico', cursive;
+    font-size: 4rem;
+    color: var(--gold-bright);
+    text-shadow:
+        0 0 20px rgba(255, 237, 78, 1),
+        0 0 40px rgba(255, 215, 0, 0.8),
+        0 0 60px rgba(255, 215, 0, 0.6),
+        0 0 80px rgba(255, 215, 0, 0.4),
+        4px 4px 15px rgba(0, 0, 0, 0.6);
+    margin-bottom: 20px;
+    animation: shimmer 2.5s ease-in-out infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    letter-spacing: 2px;
+}
+
+.title-emoji {
+    font-size: 3rem;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes shimmer {
+
+    0%,
+    100% {
+        filter: brightness(1);
+    }
+
+    50% {
+        filter: brightness(1.3);
+    }
+}
+
+.subtitle {
+    font-size: 2rem;
+    color: var(--gold-bright);
+    font-weight: 700;
+    text-shadow:
+        0 0 10px rgba(255, 237, 78, 0.8),
+        2px 2px 10px rgba(0, 0, 0, 0.6);
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.subtitle-small {
+    font-size: 1.3rem;
+    color: rgba(255, 255, 255, 0.95);
+    font-weight: 500;
+    text-shadow:
+        0 0 8px rgba(255, 255, 255, 0.5),
+        1px 1px 6px rgba(0, 0, 0, 0.6);
+    background: rgba(255, 255, 255, 0.1);
+    padding: 8px 20px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-top: 5px;
+}
+
+/* ==========================================
+   TREE CONTAINER
+   ========================================== */
+.tree-container {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    height: 700px;
+    margin: 0 auto;
+
+    /* Background tree image removed as requested */
+    background-image: none;
+    background-size: contain;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+}
+
+/* ==========================================
+   TREE STRUCTURE - BLOSSOM TREE
+   ========================================== */
+.tree {
+    display: none;
+    /* Hide tree structure as requested */
+}
+
+/* Tree Trunk */
+.tree-trunk {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 150px;
+    background: linear-gradient(to right, #5D4037, #6D4C41, #5D4037);
+    border-radius: 25px 25px 5px 5px;
+    box-shadow:
+        inset -5px 0 10px rgba(0, 0, 0, 0.3),
+        inset 5px 0 10px rgba(255, 255, 255, 0.1),
+        0 5px 20px rgba(0, 0, 0, 0.4);
+    animation: trunkGrow 1.5s ease-out;
+}
+
+@keyframes trunkGrow {
+    from {
+        height: 0;
+        opacity: 0;
+    }
+
+    to {
+        height: 150px;
+        opacity: 1;
+    }
+}
+
+/* Main Branches */
+.main-branch {
+    position: absolute;
+    background: linear-gradient(to right, #6D4C41, #8D6E63);
+    border-radius: 20px;
+    box-shadow:
+        inset -2px -2px 5px rgba(0, 0, 0, 0.3),
+        0 2px 8px rgba(0, 0, 0, 0.3);
+    animation: branchGrow 1s ease-out backwards;
+}
+
+/* Branch positioning */
+.branch-1 {
+    width: 200px;
+    height: 12px;
+    bottom: 120px;
+    left: calc(50% - 100px);
+    transform: rotate(-35deg);
+    transform-origin: right center;
+    animation-delay: 0.3s;
+}
+
+.branch-2 {
+    width: 180px;
+    height: 10px;
+    bottom: 120px;
+    left: 50%;
+    transform: rotate(30deg);
+    transform-origin: left center;
+    animation-delay: 0.4s;
+}
+
+.branch-3 {
+    width: 220px;
+    height: 13px;
+    bottom: 90px;
+    left: calc(50% - 110px);
+    transform: rotate(-25deg);
+    transform-origin: right center;
+    animation-delay: 0.5s;
+}
+
+.branch-4 {
+    width: 200px;
+    height: 12px;
+    bottom: 90px;
+    left: 50%;
+    transform: rotate(25deg);
+    transform-origin: left center;
+    animation-delay: 0.6s;
+}
+
+.branch-5 {
+    width: 240px;
+    height: 14px;
+    bottom: 60px;
+    left: calc(50% - 120px);
+    transform: rotate(-20deg);
+    transform-origin: right center;
+    animation-delay: 0.7s;
+}
+
+.branch-6 {
+    width: 220px;
+    height: 13px;
+    bottom: 60px;
+    left: 50%;
+    transform: rotate(20deg);
+    transform-origin: left center;
+    animation-delay: 0.8s;
+}
+
+@keyframes branchGrow {
+    from {
+        width: 0;
+        opacity: 0;
+    }
+}
+
+/* Blossom Clusters */
+.blossom-cluster {
+    position: absolute;
+    right: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    gap: 5px;
+}
+
+.branch-2 .blossom-cluster,
+.branch-4 .blossom-cluster,
+.branch-6 .blossom-cluster {
+    right: auto;
+    left: -10px;
+}
+
+.blossom {
+    display: inline-block;
+    font-size: 1.5rem;
+    animation: blossomPop 0.5s ease-out backwards, blossomSway 3s ease-in-out infinite;
+    filter: drop-shadow(0 2px 5px rgba(255, 192, 203, 0.5));
+}
+
+.blossom:nth-child(1) {
+    animation-delay: 1s, 1s;
+}
+
+.blossom:nth-child(2) {
+    animation-delay: 1.1s, 1.3s;
+}
+
+.blossom:nth-child(3) {
+    animation-delay: 1.2s, 1.6s;
+}
+
+@keyframes blossomPop {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes blossomSway {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(-5deg);
+    }
+
+    50% {
+        transform: translateY(-5px) rotate(5deg);
+    }
+}
+
+/* ==========================================
+   ENVELOPES GRID (ON TREE)
+   ========================================== */
+.envelopes-grid {
+ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;   /* nếu màn nhỏ sẽ tự xuống dòng */
+    width: 100%;
+    margin-top: 40px;
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* ==========================================
+   ENVELOPE CARD
+   ========================================== */
+.envelope {
+    position: relative;
+    width: 140px;
+    height: 200px;
+    perspective: 1000px;
+    cursor: pointer;
+    animation: scaleIn 0.6s ease-out backwards, sway 3s ease-in-out infinite;
+    transform-origin: top center;
+}
+@keyframes sway {
+
+    0%,
+    100% {
+        transform: rotate(-2deg);
+    }
+
+    50% {
+        transform: rotate(2deg);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.5) rotateY(90deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) rotateY(0);
+    }
+}
+
+.envelope-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transform-style: preserve-3d;
+}
+
+.envelope.falling .envelope-inner {
+    animation: fall 0.8s ease-in forwards;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(0) rotate(0deg) scale(1.05);
+    }
+
+    100% {
+        transform: translateY(calc(100vh - 400px)) rotate(15deg) scale(1);
+    }
+}
+
+.envelope.flipped .envelope-inner {
+    transform: rotateY(180deg);
+}
+
+.envelope:not(.locked):hover .envelope-inner {
+    transform: translateY(-15px) scale(1.1) rotateY(5deg);
+    filter: drop-shadow(0 20px 40px rgba(255, 215, 0, 0.6));
+}
+
+.envelope:not(.locked):hover {
+    filter: brightness(1.1);
+}
+
+.envelope.locked {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.envelope.locked .envelope-inner {
+    animation: shake 0.5s;
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-5px);
+    }
+
+    75% {
+        transform: translateX(5px);
+    }
+}
+
+/* ==========================================
+   ENVELOPE FACES
+   ========================================== */
+.envelope-front,
+.envelope-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-shadow:
+        0 10px 40px var(--shadow),
+        0 0 20px rgba(255, 215, 0, 0.3),
+        inset 0 0 30px rgba(255, 215, 0, 0.1);
+}
+
+.envelope-front {
+    background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 100%),
+        linear-gradient(135deg,
+            var(--red-primary) 0%,
+            var(--red-dark) 30%,
+            var(--red-accent) 70%,
+            var(--red-primary) 100%);
+    border: 4px solid var(--gold-primary);
+    box-shadow:
+        0 15px 50px rgba(0, 0, 0, 0.4),
+        0 0 30px var(--glow-gold),
+        inset 0 0 40px rgba(255, 215, 0, 0.1);
+}
+
+.envelope-front::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg,
+            transparent 40%,
+            rgba(255, 215, 0, 0.1) 50%,
+            transparent 60%);
+    background-size: 200% 200%;
+    animation: shine 3s infinite;
+    border-radius: 20px;
+}
+
+@keyframes shine {
+    0% {
+        background-position: -100% -100%;
+    }
+
+    100% {
+        background-position: 200% 200%;
+    }
+}
+
+.envelope-icon {
+    font-size: 5rem;
+    margin-bottom: 10px;
+    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.3));
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.envelope-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--gold-primary);
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    border: 2px solid var(--gold-primary);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 215, 0, 0.1);
+}
+
+/* ==========================================
+   ENVELOPE BACK (REVEALED)
+   ========================================== */
+.envelope-back {
+    background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 100%),
+        linear-gradient(135deg,
+            var(--gold-bright) 0%,
+            var(--gold-primary) 30%,
+            var(--gold-dark) 70%,
+            var(--gold-bright) 100%);
+    border: 4px solid var(--red-primary);
+    transform: rotateY(180deg);
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.5),
+        0 0 50px var(--glow-gold),
+        inset 0 0 50px rgba(255, 255, 255, 0.15);
+}
+
+.revealed-icon {
+    font-size: 4rem;
+    margin-bottom: 15px;
+    animation: celebrate 0.5s ease-out;
+}
+
+@keyframes celebrate {
+    0% {
+        transform: scale(0) rotate(0);
+    }
+
+    50% {
+        transform: scale(1.3) rotate(180deg);
+    }
+
+    100% {
+        transform: scale(1) rotate(360deg);
+    }
+}
+
+.revealed-money {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--red-dark);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    margin-bottom: 15px;
+}
+
+.revealed-greeting {
+    font-size: 1.1rem;
+    color: var(--white);
+    text-align: center;
+    font-weight: 500;
+    line-height: 1.5;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+    background: rgba(200, 16, 46, 0.3);
+    padding: 10px 15px;
+    border-radius: 12px;
+}
+
+/* ==========================================
+   CONFETTI
+   ========================================== */
+.confetti-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: var(--gold-primary);
+    animation: confettiFall 3s linear forwards;
+}
+
+@keyframes confettiFall {
+    to {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* ==========================================
+   RESULT MODAL
+   ========================================== */
+.result-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    animation: fadeInModal 0.3s ease-out;
+}
+
+.result-modal.active {
+    display: flex;
+}
+
+@keyframes fadeInModal {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.result-content {
+    background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, transparent 100%),
+        linear-gradient(135deg,
+            var(--gold-bright) 0%,
+            var(--gold-primary) 50%,
+            var(--gold-dark) 100%);
+    padding: 60px;
+    border-radius: 40px;
+    text-align: center;
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.6),
+        0 0 80px var(--glow-gold),
+        inset 0 0 60px rgba(255, 255, 255, 0.1);
+    border: 5px solid var(--red-primary);
+    animation: popIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    position: relative;
+    overflow: hidden;
+}
+
+.result-content::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg,
+            transparent 30%,
+            rgba(255, 255, 255, 0.1) 50%,
+            transparent 70%);
+    animation: resultShine 3s linear infinite;
+}
+
+@keyframes resultShine {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes popIn {
+    0% {
+        transform: scale(0) rotate(-180deg);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1) rotate(0);
+        opacity: 1;
+    }
+}
+
+.result-icon {
+    font-size: 6rem;
+    margin-bottom: 20px;
+    animation: rotateIn 0.6s ease-out;
+}
+
+@keyframes rotateIn {
+    from {
+        transform: rotate(-360deg) scale(0);
+    }
+
+    to {
+        transform: rotate(0) scale(1);
+    }
+}
+
+.result-money {
+    font-size: 4.5rem;
+    font-weight: 800;
+    color: var(--red-dark);
+    text-shadow:
+        0 0 20px rgba(178, 34, 34, 0.5),
+        3px 3px 15px rgba(0, 0, 0, 0.5);
+    margin-bottom: 25px;
+    letter-spacing: 2px;
+    animation: moneyPulse 1.5s ease-in-out infinite;
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes moneyPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.result-greeting {
+    font-size: 2rem;
+    color: var(--white);
+    margin-bottom: 35px;
+    text-shadow:
+        0 0 10px rgba(255, 255, 255, 0.5),
+        2px 2px 8px rgba(0, 0, 0, 0.5);
+    font-weight: 700;
+    letter-spacing: 1px;
+    position: relative;
+    z-index: 1;
+}
+
+.btn-reset {
+    background: linear-gradient(135deg, var(--red-accent), var(--red-dark));
+    color: var(--gold-bright);
+    border: 4px solid var(--gold-primary);
+    padding: 18px 50px;
+    font-size: 1.5rem;
+    font-weight: 800;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    font-family: 'Quicksand', sans-serif;
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.4),
+        0 0 30px var(--glow-gold);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn-reset::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+    z-index: -1;
+}
+
+.btn-reset:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.btn-reset:hover {
+    transform: translateY(-3px) scale(1.15);
+    box-shadow:
+        0 12px 40px rgba(0, 0, 0, 0.6),
+        0 0 50px var(--glow-gold);
+    border-color: var(--gold-bright);
+}
+
+.btn-reset:active {
+    transform: translateY(-1px) scale(1.05);
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN
+   ========================================== */
+@media (max-width: 768px) {
+    .title {
+        font-size: 2.5rem;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .title-emoji {
+        font-size: 2rem;
+    }
+
+    .subtitle {
+        font-size: 1.4rem;
+    }
+
+    .subtitle-small {
+        font-size: 1rem;
+    }
+
+    .tree-container {
+        max-width: 600px;
+        min-height: 500px;
+    }
+
+    .tree {
+        width: 450px;
+        height: 400px;
+    }
+
+    .tree-trunk {
+        width: 40px;
+        height: 120px;
+    }
+
+    .main-branch {
+        transform: scale(0.8);
+    }
+
+    .envelope {
+        width: 100px;
+        height: 150px;
+    }
+
+    .envelope-icon {
+        font-size: 3rem;
+    }
+
+    .envelope-number {
+        font-size: 1.5rem;
+        width: 40px;
+        height: 40px;
+    }
+
+    .revealed-money {
+        font-size: 1.8rem;
+    }
+
+    .revealed-greeting {
+        font-size: 0.9rem;
+    }
+
+    .result-content {
+        padding: 30px;
+        margin: 20px;
+    }
+
+    .result-money {
+        font-size: 3rem;
+    }
+
+    .result-greeting {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .tree-container {
+        max-width: 400px;
+        min-height: 450px;
+    }
+
+    .tree {
+        width: 350px;
+        height: 350px;
+    }
+
+    .tree-trunk {
+        width: 35px;
+        height: 100px;
+    }
+
+    .main-branch {
+        transform: scale(0.6);
+    }
+
+    .envelope {
+        width: 80px;
+        height: 120px;
+    }
+
+    .envelope-icon {
+        font-size: 2.5rem;
+    }
+
+    .envelope-number {
+        font-size: 1.2rem;
+        width: 35px;
+        height: 35px;
+    }
+}
