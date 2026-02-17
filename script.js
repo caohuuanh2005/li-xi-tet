@@ -30,13 +30,16 @@ let envelopeData = [];
 // UTILITY FUNCTIONS
 // ==========================================
 function getRandomMoney() {
-    // Generate random money in increments of 10,000
-    const increment = 10000;
-    const min = Math.ceil(MIN_MONEY / increment);
-    const max = Math.floor(MAX_MONEY / increment);
-    const randomValue = Math.floor(Math.random() * (max - min + 1)) + min;
-    return randomValue * increment;
+    const random = Math.random();
+
+    if (random < 0.7) return 10000;   // 70%
+    if (random < 0.85) return 20000;  // 15%
+    if (random < 0.95) return 30000;  // 10%
+    if (random < 0.99) return 40000;  // 4%
+    return 50000;                     // 1%
 }
+
+
 
 function formatMoney(amount) {
     return amount.toLocaleString('vi-VN') + 'đ';
