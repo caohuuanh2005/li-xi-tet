@@ -32,11 +32,11 @@ let envelopeData = [];
 function getRandomMoney() {
     const random = Math.random();
 
-    if (random < 0.7) return 10000;   // 70%
-    if (random < 0.85) return 20000;  // 15%
-    if (random < 0.95) return 30000;  // 10%
-    if (random < 0.99) return 40000;  // 4%
-    return 50000;                     // 1%
+    if (random < 0.85) return 10000;   // 85%
+    if (random < 0.93) return 20000;   // 8%
+    if (random < 0.97) return 30000;   // 4%
+    if (random < 0.99) return 40000;   // 2%
+    return 50000;                      // 1%
 }
 
 
@@ -196,3 +196,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Make resetGame available globally for onclick handler
 window.resetGame = resetGame;
+
